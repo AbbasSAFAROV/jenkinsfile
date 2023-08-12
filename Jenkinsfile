@@ -15,6 +15,12 @@ pipeline {
             }
         }
 
+        stage("Build Docker image"){
+            steps {
+                sh 'echo selam dunya'
+            }
+        }
+
         stage("Deploy"){
             steps {
                 sh 'echo selam dunya'
