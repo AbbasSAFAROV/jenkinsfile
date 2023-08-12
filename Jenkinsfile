@@ -14,6 +14,12 @@ pipeline {
                 sh 'echo selam dunya'
             }
         }
+
+        stage("Deploy"){
+            steps {
+                sh 'echo selam dunya'
+            }
+        }
     }
 
 }
