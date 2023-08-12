@@ -15,9 +15,13 @@ pipeline {
             }
         }
 
-        stage("Build Docker image"){
+        stage('Build docker image') {
             steps {
-                sh 'echo selam dunya'
+                script {
+                    def dockerHome = tool 'myDocker'
+                    env.PATH = "${dockerHome}/bin:${env.PATH}"
+                    sh 'docker build -t abbas1997/testImage .'
+                }
             }
         }
 
