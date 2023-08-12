@@ -8,6 +8,12 @@ pipeline {
                 sh 'echo selam dunya'
             }
         }
+
+        stage("Test"){
+            steps {
+                sh 'echo selam dunya'
+            }
+        }
     }
 
 }
