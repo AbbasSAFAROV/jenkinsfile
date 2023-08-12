@@ -29,7 +29,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'docker-secret-pwd', variable: 'dockerHubPwd')]) {
                         sh "docker login -u abbas1997 -p ${dockerHubPwd}"
                     }
-                    sh 'docker push abbas1997/testImage'
+                    sh 'docker push abbas1997/testimage'
                 }
             }
         }
