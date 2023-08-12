@@ -21,6 +21,12 @@ pipeline {
             }
         }
 
+        stage("Pusho docker image to dockerhub.io"){
+            steps {
+                sh 'echo selam dunya'
+            }
+        }
+
         stage("Deploy"){
             steps {
                 sh 'echo selam dunya'
