@@ -18,14 +18,19 @@ pipeline {
         stage('Build docker image') {
             steps {
                 script {
-                    sh 'docker build -t abbas1997/testImage .'
+                    sh 'docker build -t abbas1997/testimage .'
                 }
             }
         }
 
-        stage("Pusho docker image to dockerhub.io"){
+        stage('Push image to dockerHub') {
             steps {
-                sh 'echo selam dunya'
+                script {
+                    withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
+                        sh 'docker login -u abbas1997 -p ${dockerHubPwd}'
+                    }
+                    sh 'docker push abbas1997/testImage'
+                }
             }
         }
 
