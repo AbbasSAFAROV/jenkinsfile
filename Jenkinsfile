@@ -18,7 +18,7 @@ pipeline {
         stage('Build docker image') {
             steps {
                 script {
-                    sh "docker build -t abbas1997/testimage:${BUILD_NUMBER} ."
+                    sh "docker build -t abbas1997/testimage:${BUILD_ID} ."
                 }
             }
         }
@@ -29,7 +29,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'docker-secret-pwd', variable: 'dockerHubPwd')]) {
                         sh "docker login -u abbas1997 -p ${dockerHubPwd}"
                     }
-                    sh "docker push abbas1997/testimage:${BUILD_NUMBER}"
+                    sh "docker push abbas1997/testimage:${BUILD_ID}"
                 }
             }
         }
