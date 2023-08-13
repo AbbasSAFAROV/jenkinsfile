@@ -42,8 +42,8 @@ pipeline {
 
         stage("Deploy"){
             steps {
-                sshagent(['ssh-agent']) {
-                    sh 'ssh -tt -o StrictHostKeyChecking=no root@146.190.123.148 uname -a'
+                sshagent(['146.190.123.148']) {
+                    sh 'ssh -o StrictHostKeyChecking=no -l root 146.190.123.148 uname -a'
                 }
             }
         }
