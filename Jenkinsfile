@@ -42,7 +42,9 @@ pipeline {
 
         stage("Deploy"){
             steps {
-                sh 'docker run --name testcontainer -p 80:80 abbas1997/testimage'
+                sshagent(['ssh-agent']) {
+                    sh 'ssh -o StrictHostKeyChecking=no 146.190.123.148 uname -a'
+                }
             }
         }
     }
