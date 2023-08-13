@@ -42,7 +42,7 @@ pipeline {
 
         stage("Deploy"){
             steps {
-                sh 'echo selam dunya'
+                sh 'docker run --name testcontainer -p 80:80 abbas1997/testimage'
             }
         }
     }
