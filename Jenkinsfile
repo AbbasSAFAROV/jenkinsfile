@@ -43,7 +43,7 @@ pipeline {
         stage("Deploy"){
             steps {
                 sshagent(['146.190.123.148']) {
-                    sh 'ssh -o StrictHostKeyChecking=no -l root 146.190.123.148 uname -a'
+                    sh 'ssh -o StrictHostKeyChecking=no -l root 146.190.123.148 docker ps -a'
                 }
             }
         }
